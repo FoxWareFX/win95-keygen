@@ -8,11 +8,11 @@ String.prototype.replaceAt = function (index, repl) {
 const keyType = {
     OFF: {
         RET: gO95ret,
-        OEM: gP95oem
+        OEM: gO95oem
     },
     WIN: {
         RET: gW95ret,
-        OEM: gP95oem
+        OEM: gW95oem
     }
 }
 
@@ -62,13 +62,11 @@ function gW95ret() {
     return seg1.toString().padStart(3, '0') + "-" + calcSumStr(7);
 }
 
-function gP95oem() {
-    let seg1;
+function gO95oem() {
+    return rand(0, 99999).toString().padStart(5, '0') + "-OEM-" + calcSumStr(7) + "-" + rand(0, 99999).toString().padStart(5, '0');
+}
 
-    do {
-        seg1 = rand(0, 999);
-    } while(seg1 === 333 || seg1 === 444 || seg1 === 555 || seg1 === 666 || seg1 === 777 || seg1 === 888 || seg1 === 999);
-
+function gW95oem() {
     return rand(1, 366).toString().padStart(3, '0') + (brand()? rand(95, 99) : rand(0, 2)).toString().padStart(2, '0') + "-OEM-0" + calcSumStr(6) + "-" + rand(0, 99999).toString().padStart(5, '0');
 }
 
