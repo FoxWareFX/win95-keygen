@@ -6,9 +6,13 @@ String.prototype.replaceAt = function (index, repl) {
 }
 
 const keyType = {
+    OFF: {
+        RET: gO95ret,
+        OEM: gP95oem
+    },
     WIN: {
         RET: gW95ret,
-        OEM: gW95oem
+        OEM: gP95oem
     }
 }
 
@@ -44,6 +48,10 @@ function calcSumStr(len) {
     return str;
 }
 
+function gO95ret() {
+    return rand(0, 999).toString().padStart(3, '0') + "-" + calcSumStr(7);
+}
+
 function gW95ret() {
     let seg1;
 
@@ -54,7 +62,7 @@ function gW95ret() {
     return seg1.toString().padStart(3, '0') + "-" + calcSumStr(7);
 }
 
-function gW95oem() {
+function gP95oem() {
     let seg1;
 
     do {
