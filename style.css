@@ -96,14 +96,6 @@ body {
     outline: none;
 }
 
-#wip {
-    z-index: -100;
-
-    position: absolute;
-    bottom: 10px;
-    font-weight: 700;
-}
-
 .dpd {
     height: var(--keyfield-h);
     border-radius: var(--radius);
