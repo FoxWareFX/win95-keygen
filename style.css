@@ -34,7 +34,7 @@ body {
     border-radius: 15px;
 }
 
-.content * {
+.content *:not(div) {
     margin-bottom: 10px;
 }
 
@@ -102,4 +102,20 @@ body {
     position: absolute;
     bottom: 10px;
     font-weight: 700;
+}
+
+.dpd {
+    height: var(--keyfield-h);
+    border-radius: var(--radius);
+    font-size: var(--font-s);
+    border: none;
+    width: calc(50% - 5px / 2);
+}
+
+#prod-sel {
+    border-radius: var(--radius) 0 0 var(--radius);
+}
+
+#ver-sel {
+    border-radius: 0 var(--radius) var(--radius) 0;
 }

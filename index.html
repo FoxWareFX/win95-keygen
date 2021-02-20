@@ -11,12 +11,25 @@
     </head>
     <body>
         <p id="wip">WORK IN PROGRESS</p>
-
         <div class="content">
             <h1 class="title">Windows 95 Key Generator</h1>
-            <input type="text" class="key-field-init key-field" value="The key will appear here..." readonly>
-            <button class="btn copy-key-btn" onclick="copy('.key-field')">📋</button>
-            <button class="btn gen-btn" onclick="gen('.key-field', 'key-field-init')">GENERATE</button>
+
+            <div>
+                <select id="prod-sel" class="dpd">
+                    <option value="WIN">Windows</option>
+                </select>
+                <select id="ver-sel" class="dpd">
+                    <option value="RET">Retail</option>
+                    <option value="OEM">OEM</option>
+                </select>
+            </div>
+
+            <div>
+                <input type="text" class="key-field-init key-field" value="The key will appear here..." readonly>
+                <button class="btn copy-key-btn" onclick="copy('.key-field')">📋</button>
+            </div>
+
+            <button class="btn gen-btn" onclick="gen('.key-field', 'key-field-init', $('#prod-sel').val(), $('#ver-sel').val())">GENERATE</button>
         </div>
 
         <script src="jquery.js"></script>

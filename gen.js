@@ -5,6 +5,13 @@ String.prototype.replaceAt = function (index, repl) {
     return this.substr(0, index) + repl + this.substr(index + 1)
 }
 
+const keyType = {
+    WIN: {
+        RET: gW95ret,
+        OEM: gW95oem
+    }
+}
+
 function digitSum(num) {
     let sum = 0;
 
@@ -24,28 +31,46 @@ function brand() {
 
 let init = false;
 
-function gen(field, initField) {
-    if(!init) {
-        $(field).removeClass(initField);
-        init = true;
-    }
+function calcSumStr(len) {
+    let str = "0".repeat(len);
 
-    let seg1;
-    let seg2 = "0000000";
-    let fld = $(field);
-
-    for(let i = 0, p = 0, sum = 7 * rand(1, seg2.length); sum > 0; i++, p = i % seg2.length) {
-        if(brand() && parseInt(seg2.charAt(p)) < 9) {
-            seg2 = seg2.replaceAt(p, parseInt(seg2.charAt(p)) + 1);
+    for(let i = 0, p = 0, sum = 7 * rand(1, len); sum > 0; i++, p = i % len) {
+        if(brand() && parseInt(str.charAt(p)) < 9) {
+            str = str.replaceAt(p, parseInt(str.charAt(p)) + 1);
             sum--;
         }
     }
+
+    return str;
+}
+
+function gW95ret() {
+    let seg1;
 
     do {
         seg1 = rand(0, 999);
     } while(seg1 === 333 || seg1 === 444 || seg1 === 555 || seg1 === 666 || seg1 === 777 || seg1 === 888 || seg1 === 999);
 
-    fld.val(seg1.toString().padStart(3, '0') + "-" + seg2);
+    return seg1.toString().padStart(3, '0') + "-" + calcSumStr(7);
+}
+
+function gW95oem() {
+    let seg1;
+
+    do {
+        seg1 = rand(0, 999);
+    } while(seg1 === 333 || seg1 === 444 || seg1 === 555 || seg1 === 666 || seg1 === 777 || seg1 === 888 || seg1 === 999);
+
+    return rand(1, 366).toString().padStart(3, '0') + (brand()? rand(95, 99) : rand(0, 2)).toString().padStart(2, '0') + "-OEM-0" + calcSumStr(6) + "-" + rand(0, 99999).toString().padStart(5, '0');
+}
+
+function gen(field, initField, prod, ver) {
+    if(!init) {
+        $(field).removeClass(initField);
+        init = true;
+    }
+
+    $(field).val(keyType[prod][ver]());
 }
 
 function copy(field) {
