@@ -111,3 +111,9 @@ body {
 #ver-sel {
     border-radius: 0 var(--radius) var(--radius) 0;
 }
+
+#sign {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
