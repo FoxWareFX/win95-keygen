@@ -5,6 +5,12 @@ String.prototype.replaceAt = function (index, repl) {
     return this.substr(0, index) + repl + this.substr(index + 1)
 }
 
+let init = false;
+const keyField = $(".key-field");
+const initField = "key-field-init";
+const note = $(".note");
+const noteVisible = "note-visible";
+const eePhrases = ["You are not supposed to be here!", "Someone is curious, huh?", "DON'T TOUCH ME!", "visitor.give(Actions.HUG);"];
 const keyType = {
     OFF: {
         RET: gO95ret,
@@ -16,6 +22,10 @@ const keyType = {
     }
 }
 
+function ee() {
+    show(eePhrases[rand(0, eePhrases.length - 1)]);
+}
+
 function rand(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -23,8 +33,6 @@ function rand(min, max) {
 function brand() {
     return rand(0, 1);
 }
-
-let init = false;
 
 function calcSumStr(len) {
     let str = "0".repeat(len);
@@ -61,15 +69,32 @@ function gW95oem() {
     return rand(1, 366).toString().padStart(3, '0') + (brand()? rand(95, 99) : rand(0, 2)).toString().padStart(2, '0') + "-OEM-0" + calcSumStr(6) + "-" + rand(0, 99999).toString().padStart(5, '0');
 }
 
-function gen(field, initField, prod, ver) {
+function gen(prod, ver) {
     if(!init) {
-        $(field).removeClass(initField);
+        keyField.removeClass(initField);
         init = true;
     }
 
-    $(field).val(keyType[prod][ver]());
+    keyField.val(keyType[prod][ver]());
 }
 
-function copy(field) {
-    navigator.clipboard.writeText($(field).val());
+let presses = 0;
+function show(text) {
+    note.html(text);
+
+    note.addClass(noteVisible);
+    presses++;
+
+    setTimeout(function () {
+        if(presses <= 1)
+            note.removeClass(noteVisible);
+
+        presses--;
+    }, 2000);
+}
+
+function copy() {
+    navigator.clipboard.writeText(keyField.val());
+
+    show("Copied to clipboard!");
 }
