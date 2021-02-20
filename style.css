@@ -4,6 +4,11 @@
     box-sizing: border-box;
 
     font-family: "Segoe UI", serif;
+
+    --keyfield-h: 45px;
+    --copy-btn-w: 60px;
+    --radius: 10px;
+    --font-s: 15pt;
 }
 
 html, body {
@@ -33,25 +38,62 @@ body {
     margin-bottom: 10px;
 }
 
-.gen-btn {
-    width: 100%;
-
-    border: 0;
-    background: deepskyblue;
-    border-radius: 8px;
-    font-size: 18pt;
-    font-weight: 700;
-    color: white;
-
-    margin-bottom: 8px;
+.title {
+    margin-bottom: 20px;
 }
 
-.gen-btn:hover {
+.key-field-init {
+    color: darkgray;
+}
+
+.key-field {
+    width: calc(100% - var(--copy-btn-w) - 5px);
+    height: var(--keyfield-h);
+
+    border-radius: var(--radius) 0 0 var(--radius);
+    border: none;
+
+    padding-left: 12px;
+    font-size: var(--font-s);
+}
+
+.btn {
+    border: none;
+    background: deepskyblue;
+    border-radius: var(--radius);
+    color: white;
+}
+
+.btn:hover {
     background: dodgerblue;
 }
 
-.gen-btn:active {
+.btn:active {
     background: lightskyblue;
+}
+
+.btn:disabled {
+    background: darkgray;
+}
+
+.copy-key-btn {
+    width: var(--copy-btn-w);
+    height: var(--keyfield-h);
+
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-size: var(--font-s);
+}
+
+.gen-btn {
+    width: 100%;
+    height: var(--keyfield-h);
+
+    font-size: var(--font-s);
+    font-weight: 700;
+}
+
+*:focus{
+    outline: none;
 }
 
 #wip {
