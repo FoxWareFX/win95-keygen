@@ -16,15 +16,6 @@ const keyType = {
     }
 }
 
-function digitSum(num) {
-    let sum = 0;
-
-    while(num) {
-        sum += num % 10;
-        num = Math.floor(num / 10);
-    }
-}
-
 function rand(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
