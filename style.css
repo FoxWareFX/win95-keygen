@@ -1,0 +1,63 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    font-family: "Segoe UI", serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-size: cover;
+    background: url("bg.jpg") center center;
+    position: relative;
+
+    overflow: hidden;
+}
+
+.content {
+    background: rgba(255, 255, 255, 0.8);
+
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+
+.content * {
+    margin-bottom: 10px;
+}
+
+.gen-btn {
+    width: 100%;
+
+    border: 0;
+    background: deepskyblue;
+    border-radius: 8px;
+    font-size: 18pt;
+    font-weight: 700;
+    color: white;
+
+    margin-bottom: 8px;
+}
+
+.gen-btn:hover {
+    background: dodgerblue;
+}
+
+.gen-btn:active {
+    background: lightskyblue;
+}
+
+#wip {
+    z-index: -100;
+
+    position: absolute;
+    bottom: 10px;
+    color: white;
+}
