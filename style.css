@@ -148,10 +148,10 @@ body {
 }
 
 #gh-tt {
-    width: 160px;
+
     background: #303030AA;
     color: white;
-    padding: 3px 0;
+    padding: 3px 6px;
     text-align: center;
     border-radius: 4px;
     margin-bottom: 10px;
