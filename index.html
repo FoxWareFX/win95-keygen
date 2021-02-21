@@ -4,12 +4,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="description" content="Generate Windows 95 and Office 95, Retail and OEM, Product Keys">
-        <meta name="keywords" content="win95,office 95,windows 95,oem,retail,generator,key,product key,foxwarefx,foxware fx,keygen,key generator,product key gen,windows 95 key,office 95 key,windows 95 product key,office 95 product key, windows95, office95">
+        <meta name="keywords" content="win95,office 95,windows 95,oem,retail,generator,key,product key,foxwarefx,foxware fx,keygen,key generator,product key index,windows 95 key,office 95 key,windows 95 product key,office 95 product key, windows95, office95">
 
-        <link rel="icon" href="icon.png">
+        <link rel="icon" href="res/icon.png">
         <link rel="stylesheet" href="style.css">
 
-        <script src="fontawesome.js" crossorigin="anonymous"></script>
+        <script src="lib/fontawesome.js" crossorigin="anonymous"></script>
 
         <title>Win95 KeyGen</title>
     </head>
@@ -38,9 +38,13 @@
             <button class="btn gen-btn" onclick="gen($('#prod-sel').val(), $('#ver-sel').val())">GENERATE</button>
         </div>
 
+        <a id="gh" href="https://github.com/FoxWareFX/win95-keygen">
+            <p id="gh-tt">See the source code!</p>
+            <img alt="GitHub" src="res/github.png" width="32">
+        </a>
         <p id="sign" onclick="ee()"><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by FoxWare</p>
 
-        <script src="jquery.js"></script>
-        <script src="gen.js"></script>
+        <script src="lib/jquery.js"></script>
+        <script src="index.js"></script>
     </body>
 </html>

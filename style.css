@@ -22,7 +22,7 @@ body {
     align-items: center;
 
     background-size: cover;
-    background: url("bg.jpg") center center;
+    background: url("res/bg.jpg") center center;
     position: relative;
 
     overflow: hidden;
@@ -129,13 +129,49 @@ body {
     position: absolute;
     top: -60px;
     color: white;
-    background: #FF9900;
     padding: var(--input-lp);
     border-radius: var(--radius);
 
-    transition-duration: 1s;
+    transition: top 500ms;
 }
 
 .note-visible {
     top: 20px;
+}
+
+#gh {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+
+    text-decoration: none;
+}
+
+#gh-tt {
+    width: 160px;
+    background: #303030AA;
+    color: white;
+    padding: 3px 0;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    transition: 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#gh-tt::before {
+    content: "";
+    position: absolute;
+    top: 37%;
+    left: 10%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+#gh:hover #gh-tt {
+    visibility: visible;
+    opacity: 1;
 }

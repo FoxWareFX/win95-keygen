@@ -10,7 +10,7 @@ const keyField = $(".key-field");
 const initField = "key-field-init";
 const note = $(".note");
 const noteVisible = "note-visible";
-const eePhrases = ["You are not supposed to be here!", "Someone is curious, huh?", "DON'T TOUCH ME!", "visitor.give(Actions.HUG);"];
+const eePhrases = ["You are not supposed to see this!", "Someone is curious, huh?", "DON'T TOUCH ME!", "visitor.give(Actions.HUG);"];
 const keyType = {
     OFF: {
         RET: gO95ret,
@@ -23,7 +23,7 @@ const keyType = {
 }
 
 function ee() {
-    show(eePhrases[rand(0, eePhrases.length - 1)]);
+    show(eePhrases[rand(0, eePhrases.length - 1)], "linear-gradient(50deg, #FF0000, #FF9900)");
 }
 
 function rand(min, max) {
@@ -79,8 +79,9 @@ function gen(prod, ver) {
 }
 
 let presses = 0;
-function show(text) {
+function show(text, bg) {
     note.html(text);
+    note.css("background", bg);
 
     note.addClass(noteVisible);
     presses++;
@@ -96,5 +97,5 @@ function show(text) {
 function copy() {
     navigator.clipboard.writeText(keyField.val());
 
-    show("Copied to clipboard!");
+    show("Copied to clipboard!", "#FF9900");
 }
