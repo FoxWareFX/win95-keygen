@@ -28,7 +28,7 @@ body {
     overflow: hidden;
 }
 
-.content {
+.window {
     background: rgba(255, 255, 255, 0.8);
 
     padding: 10px 20px;
@@ -37,7 +37,7 @@ body {
     z-index: 20;
 }
 
-.content *:not(div) {
+.window *:not(div) {
     margin-bottom: 10px;
 }
 
