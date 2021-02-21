@@ -5,7 +5,7 @@
 
     font-family: "Segoe UI", serif;
 
-    --keyfield-h: 45px;
+    --input-h: 45px;
     --copy-btn-w: 60px;
     --radius: 10px;
     --font-s: 15pt;
@@ -51,7 +51,7 @@ body {
 
 .key-field {
     width: calc(100% - var(--copy-btn-w) - 5px);
-    height: var(--keyfield-h);
+    height: var(--input-h);
 
     border-radius: var(--radius) 0 0 var(--radius);
     border: none;
@@ -81,7 +81,7 @@ body {
 
 .copy-key-btn {
     width: var(--copy-btn-w);
-    height: var(--keyfield-h);
+    height: var(--input-h);
 
     border-radius: 0 var(--radius) var(--radius) 0;
     font-size: var(--font-s);
@@ -89,7 +89,7 @@ body {
 
 .gen-btn {
     width: 100%;
-    height: var(--keyfield-h);
+    height: var(--input-h);
 
     font-size: var(--font-s);
     font-weight: 700;
@@ -100,7 +100,7 @@ body {
 }
 
 .dpd {
-    height: var(--keyfield-h);
+    height: var(--input-h);
     border-radius: var(--radius);
     font-size: var(--font-s);
     border: none;
