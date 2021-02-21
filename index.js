@@ -95,7 +95,9 @@ function show(text, bg) {
 }
 
 function copy() {
-    navigator.clipboard.writeText(keyField.val());
-
-    show("Copied to clipboard!", "#FF9900");
+    if(init) {
+        navigator.clipboard.writeText(keyField.val());
+        show("Copied to clipboard!", "#FF9900");
+    } else
+        show("Nothing to copy!", "#FF0000");
 }
