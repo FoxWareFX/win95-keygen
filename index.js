@@ -52,7 +52,7 @@ function calcMod7(len) {
 }
 
 /*
- * Gen Win95 Retail
+ * Gen Office95 Retail
  * NNN-MMMMMMM
  * NNN = any number from 0 to 999
  * MMMMMMM = the sum of the digits MUST be divisible by 7
