@@ -52,7 +52,7 @@ function calcMod7(len) {
 }
 
 /*
- * Gen Win95 Retail
+ * Gen Office95 Retail
  * NNN-MMMMMMM
  * NNN = any number from 0 to 999
  * MMMMMMM = the sum of the digits MUST be divisible by 7
@@ -80,7 +80,7 @@ function gW95ret() {
 /*
  * Gen Office95 OEM
  * NNNNN-OEM-MMMMMMM-PPPPP
- * MMMMMZ = the sum of the digits MUST be divisible by 7
+ * MMMMMMM = the sum of the digits MUST be divisible by 7
  * NNNNN, PPPPP = any number from 0 to 99999
  */
 function gO95oem() {
