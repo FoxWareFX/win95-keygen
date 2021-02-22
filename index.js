@@ -11,7 +11,7 @@ const initField = "key-field-init";
 const note = $(".note");
 const noteVisible = "note-visible";
 const eePhrases = ["You are not supposed to see this!", "Someone is curious, huh?", "DON'T TOUCH ME!", "visitor.give(Actions.HUG);"];
-// Contains all gen functions
+// Contains all generation functions
 const keyType = {
     OFF: {
         RET: gO95ret,
