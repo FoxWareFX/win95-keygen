@@ -66,16 +66,21 @@ function gO95ret() {
  * Gen Win95 Retail
  * NNN-MMMMMMM
  * NNN = any number from 0 to 999 (except 333, 444, 555 ... 999)
- * MMMMMMM = the sum of the digits MUST be divisible by 7
+ * MMMMMMZ = the 1-6 digits can be any digit (except to the last, MUST NOT be 0, 8 or 9), the sum of the digits MUST be divisible by 7
  */
 function gW95ret() {
     let seg1;
+    let seg2;
 
     do {
         seg1 = rand(0, 999);
     } while(seg1 === 333 || seg1 === 444 || seg1 === 555 || seg1 === 666 || seg1 === 777 || seg1 === 888 || seg1 === 999);
 
-    return seg1.toString().padStart(3, '0') + "-" + calcMod7(7);
+    do {
+        seg2 = calcMod7(7);
+    } while(seg2.endsWith("0") || seg2.endsWith("8") || seg2.endsWith("9"));
+
+    return seg1.toString().padStart(3, '0') + "-" + seg2;
 }
 
 /*
@@ -94,7 +99,7 @@ function gO95oem() {
  * DDD = Day of the year (1-366)
  * YY = year (95-02)
  * 0 = the first digit of the mod7 check MUST be 0
- * MMMMMZ = the 2-5 digits can be any number (except to the last, MUST NOT be 0), the sum of the digits MUST be divisible by 7
+ * MMMMMZ = the 2-6 digits can be any digit (except to the last, MUST NOT be 0, 8 or 9), the sum of the digits MUST be divisible by 7
  * NNNNN = any number from 0 to 99999
  */
 function gW95oem() {
