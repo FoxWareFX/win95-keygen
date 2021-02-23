@@ -102,7 +102,7 @@ function gW95oem() {
 
     do {
         seg1 = calcMod7(6);
-    } while(seg1.endsWith("0"));
+    } while(seg1.endsWith("0") || seg1.endsWith("8") || seg1.endsWith("9"));
 
     return rand(1, 366).toString().padStart(3, '0') + (brand()? rand(95, 99) : rand(0, 2)).toString().padStart(2, '0') + "-OEM-0" + seg1 + "-" + rand(0, 99999).toString().padStart(5, '0');
 }
