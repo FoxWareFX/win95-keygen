@@ -9,8 +9,6 @@ let init = false;
 const keyField = $(".key-field");
 const initField = "key-field-init";
 const note = $(".note");
-const noteVisible = "note-visible";
-const eePhrases = ["You are not supposed to see this!", "Someone is curious, huh?", "DON'T TOUCH ME!", "visitor.give(Actions.HUG);"];
 // Contains all generation functions
 const keyType = {
     OFF: {
@@ -25,7 +23,9 @@ const keyType = {
 
 // Easter egg
 function ee() {
-    show(eePhrases[rand(0, eePhrases.length - 1)], "linear-gradient(50deg, #FF0000, #FF9900)");
+    $.getJSON("res/splashes.json", function(result) {
+        show(result.data[rand(0, result.data.length - 1)], "linear-gradient(50deg, #FF0000, #FF9900)");
+    });
 }
 
 // Random
@@ -126,8 +126,8 @@ let presses = 0;
 function show(text, bg) {
     note.html(text);
     note.css("background", bg);
+    note.css("top", "20px");
 
-    note.addClass(noteVisible);
     presses++;
 
     setTimeout(function () {
@@ -136,7 +136,7 @@ function show(text, bg) {
          * necessary for not make the note go up and down.
          */
         if(presses <= 1)
-            note.removeClass(noteVisible);
+            note.css("top", "-" + note.outerHeight(true) + "px");
 
         presses--;
     }, 2000);

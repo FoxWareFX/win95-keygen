@@ -127,16 +127,13 @@ body {
 
 .note {
     position: absolute;
-    top: -60px;
     color: white;
     padding: var(--input-lp);
     border-radius: var(--radius);
+    text-align: center;
 
     transition: top 500ms;
-}
-
-.note-visible {
-    top: 20px;
+    top: -20%;
 }
 
 #gh {
