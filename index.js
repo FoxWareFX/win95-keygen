@@ -5,7 +5,6 @@ String.prototype.replaceAt = function (index, repl) {
     return this.substr(0, index) + repl + this.substr(index + 1)
 }
 
-let init = false;
 const keyField = $(".key-field");
 const initField = "key-field-init";
 const note = $(".note");
@@ -114,14 +113,6 @@ function gW95oem() {
 
 // Generate the key
 function gen(prod, ver) {
-    /*
-     * If it was not initialized, removes the class 'initField' so the code is black and not gray
-     */
-    if(!init) {
-        keyField.removeClass(initField);
-        init = true;
-    }
-
     // Takes the function from the keyType 'enum'
     keyField.val(keyType[prod][ver]());
 }
@@ -152,7 +143,7 @@ function show(text, bg) {
  * showing a notification if was copied successfully.
  */
 function copy() {
-    if(init) {
+    if(keyField.val() !== "") {
         navigator.clipboard.writeText(keyField.val());
         show("Copied to clipboard!", "#FF9900");
     } else

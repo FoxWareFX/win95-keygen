@@ -56,10 +56,6 @@ body {
     font-size: var(--font-s);
 }
 
-.key-field-init {
-    color: darkgray;
-}
-
 .btn {
     border: none;
     background: deepskyblue;
